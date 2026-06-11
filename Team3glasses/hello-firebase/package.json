@@ -1,5 +1,5 @@
 {
-  "name": "hello-firebase",
+  "name": "todo-app",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
@@ -9,19 +9,17 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^3.1.1",
-    "expo": "~54.0.33",
-    "expo-status-bar": "~3.0.9",
-    "firebase": "^12.12.1",
-    "react": "19.1.0",
-    "react-native": "0.81.5",
-    "react-native-paper": "^5.15.3",
-    "react-native-safe-area-context": "^5.8.0",
-    "react-native-vector-icons": "^10.3.0"
+    "@react-native-async-storage/async-storage": "1.23.1",
+    "expo": "~52.0.47",
+    "expo-status-bar": "~2.0.1",
+    "react": "18.3.1",
+    "react-native": "0.76.9",
+    "react-native-paper": "^5.14.5"
   },
   "devDependencies": {
-    "@types/react": "~19.1.0",
-    "typescript": "~5.9.2"
+    "@babel/core": "^7.25.2",
+    "@types/react": "~18.3.12",
+    "typescript": "^5.3.3"
   },
   "private": true
 }
