@@ -17,6 +17,7 @@ import { router } from "expo-router";
 type Task = {
   id: number;
   title: string;
+  detail: string;
   done: boolean;
 };
 
@@ -44,6 +45,7 @@ export default function Index() {
       const newTask: Task = {
         id: Date.now(),
         title: task.trim(),
+        detail: "",
         done: false,
       };
       setTasks([...tasks, newTask]);
@@ -81,7 +83,7 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>ToDoリスト</Text>
+      <Text style={styles.header}>†ToDoリスト†</Text>
       <TextInput
         style={styles.input}
         value={task}
@@ -104,7 +106,10 @@ export default function Index() {
               color="#2196f3"
               uncheckedColor="gray"
             />
-            <Text style={styles.taskText} onPress={() => router.push("/sub")}>
+            <Text style={styles.taskText} onPress={() => router.push({
+              pathname: "/sub",
+              params: { id: item.id.toString(), title: item.title }
+              })}>
               {item.title}
             </Text>
             <Button
@@ -130,7 +135,10 @@ export default function Index() {
               status={item.done ? "checked" : "unchecked"}
               onPress={() => toggleTask(item.id)}
             />
-            <Text style={[styles.taskText, { color: "gray" }]}>
+            <Text style={[styles.taskText, { color: "gray" }]} onPress={() => router.push({
+              pathname: "/sub",
+              params: { id: item.id.toString(), title: item.title }
+              })}>
               {item.title}
             </Text>
             <Button
@@ -159,7 +167,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 20,
-    color: "#2196F3",
+    color: "#8d1e02",
     textAlign: "center",
   },
   input: {
@@ -185,5 +193,11 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 20,
     marginLeft: 10,
+  },
+  addButton: {
+    backgroundColor: "#2196f3",
+  },
+  delButton: {
+    backgroundColor: "#b10900",
   },
 });
